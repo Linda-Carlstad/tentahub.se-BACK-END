@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2Vw4YacdAgyskIRxWQQLtJfauagdx9IKfk0IhBhFdddkUKfIYjk/CwrCCOxx+BAnFFLRCZN4VOboQyNXDrLxsQ==",
+  "dgSpecHash": "ScJD4bgaSnf+LcB/iv1Jj+9VkuiFKhZ7cbqMaGO832b0ltKpOZiFlF72Ph6zcXaU8nXvzRWqD8THV5F5fZl+QQ==",
   "success": true,
-  "projectFilePath": "/home/johannes/Development/spel/TentaHub/tenta-hub-backend/tenta-hub-backend.csproj",
+  "projectFilePath": "/home/johannes/Development/TentaHub/tenta-hub-backend/tenta-hub-backend.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

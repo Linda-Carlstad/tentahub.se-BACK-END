@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "PUt6sEBN2KZZeari4V0SkHXcTlspzFaDL9fJe1nK6js=",
+  "Source": "tenta-hub-backend",
+  "BasePath": "_content/tenta-hub-backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
