@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/johannes/Development/TentaHub/tenta-hub-backend/tenta-hub-backend.csproj",
+      "projectUniqueName": "/home/johannes/Development/tentahub.se/tentahub.se-BACK-END/tenta-hub-backend.csproj",
       "projectName": "tenta-hub-backend",
-      "projectPath": "/home/johannes/Development/TentaHub/tenta-hub-backend/tenta-hub-backend.csproj",
+      "projectPath": "/home/johannes/Development/tentahub.se/tentahub.se-BACK-END/tenta-hub-backend.csproj",
       "packagesPath": "/home/johannes/.nuget/packages/",
-      "outputPath": "/home/johannes/Development/TentaHub/tenta-hub-backend/obj/",
+      "outputPath": "/home/johannes/Development/tentahub.se/tentahub.se-BACK-END/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/johannes/.nuget/NuGet/NuGet.Config"
