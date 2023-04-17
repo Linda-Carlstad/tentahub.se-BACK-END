@@ -6,10 +6,10 @@ COPY . ./
 # Restore as distinct layers
 RUN dotnet restore
 # Build and publish a release
-RUN dotnet publish -c Release -o out
+RUN dotnet build -c Debug -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /App
 COPY --from=build-env /App/out .
-ENTRYPOINT ["dotnet", "tenta-hub-backend.dll"]
+ENTRYPOINT ["dotnet", "tenta-hub-backend.dll", "--environment", "docker-dev"]
