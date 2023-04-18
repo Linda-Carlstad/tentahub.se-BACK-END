@@ -9,6 +9,7 @@ using TentaHub.Models;
 
 namespace tenta_hub_backend.src.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class ExamsController : ControllerBase
@@ -28,10 +29,10 @@ namespace tenta_hub_backend.src.Controllers
         }
 
         // GET: api/Exams/5
-        [HttpGet("{id}")]
+        [HttpGet("id/{id}")]
         public async Task<ActionResult<Exam>> GetExam(string id)
         {
-            var exam = await _context.Exams.FindAsync(id);
+            var exam =  await _context.Exams.FindAsync(id);
 
             if (exam == null)
             {
@@ -43,7 +44,7 @@ namespace tenta_hub_backend.src.Controllers
 
         // PUT: api/Exams/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("id/{id}")]
         public async Task<IActionResult> PutExam(string id, Exam exam)
         {
             if (id != exam.ID)
@@ -98,7 +99,7 @@ namespace tenta_hub_backend.src.Controllers
         }
 
         // DELETE: api/Exams/5
-        [HttpDelete("{id}")]
+        [HttpDelete("id/{id}")]
         public async Task<IActionResult> DeleteExam(string id)
         {
             var exam = await _context.Exams.FindAsync(id);
@@ -116,6 +117,20 @@ namespace tenta_hub_backend.src.Controllers
         private bool ExamExists(string id)
         {
             return _context.Exams.Any(e => e.ID == id);
+        }
+
+
+        
+        // GET: api/Exams/MAGA55
+        [HttpGet("course/{courseNameShort}")]
+
+        public async Task<ActionResult<IEnumerable<Exam>>> GetExamsFromCourse(string courseNameShort) {
+            
+            
+            var queryResult = _context.Exams.FromSqlInterpolated($"SELECT * FROM Exams").Where(res => res.courseNameShort == courseNameShort);
+            var exams = await queryResult.ToListAsync();
+            return exams;
+
         }
     }
 }

@@ -28,7 +28,7 @@ namespace tenta_hub_backend.src.Controllers
         }
 
         // GET: api/Courses/5
-        [HttpGet("{id}")]
+        [HttpGet("id/{id}")]
         public async Task<ActionResult<Course>> GetCourse(string id)
         {
             var course = await _context.Courses.FindAsync(id);
@@ -43,7 +43,7 @@ namespace tenta_hub_backend.src.Controllers
 
         // PUT: api/Courses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("id/{id}")]
         public async Task<IActionResult> PutCourse(string id, Course course)
         {
             if (id != course.ID)
@@ -98,7 +98,7 @@ namespace tenta_hub_backend.src.Controllers
         }
 
         // DELETE: api/Courses/5
-        [HttpDelete("{id}")]
+        [HttpDelete("id/{id}")]
         public async Task<IActionResult> DeleteCourse(string id)
         {
             var course = await _context.Courses.FindAsync(id);
@@ -117,5 +117,6 @@ namespace tenta_hub_backend.src.Controllers
         {
             return _context.Courses.Any(e => e.ID == id);
         }
+
     }
 }

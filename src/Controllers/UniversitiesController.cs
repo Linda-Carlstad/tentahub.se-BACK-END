@@ -28,7 +28,7 @@ namespace tenta_hub_backend.src.Controllers
         }
 
         // GET: api/Universities/5
-        [HttpGet("{id}")]
+        [HttpGet("id/{id}")]
         public async Task<ActionResult<University>> GetUniversity(string id)
         {
             var university = await _context.Universities.FindAsync(id);
@@ -43,7 +43,7 @@ namespace tenta_hub_backend.src.Controllers
 
         // PUT: api/Universities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("id/{id}")]
         public async Task<IActionResult> PutUniversity(string id, University university)
         {
             if (id != university.ID)
@@ -98,7 +98,7 @@ namespace tenta_hub_backend.src.Controllers
         }
 
         // DELETE: api/Universities/5
-        [HttpDelete("{id}")]
+        [HttpDelete("id/{id}")]
         public async Task<IActionResult> DeleteUniversity(string id)
         {
             var university = await _context.Universities.FindAsync(id);
