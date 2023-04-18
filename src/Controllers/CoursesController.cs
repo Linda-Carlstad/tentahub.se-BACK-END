@@ -11,47 +11,47 @@ namespace tenta_hub_backend.src.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UniveritiesController : ControllerBase
+    public class CoursesController : ControllerBase
     {
-        private readonly UniversityContext _context;
+        private readonly DataContext _context;
 
-        public UniveritiesController(UniversityContext context)
+        public CoursesController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Univerities
+        // GET: api/Courses
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<University>>> GetUniversities()
+        public async Task<ActionResult<IEnumerable<Course>>> GetCourses()
         {
-            return await _context.Universities.ToListAsync();
+            return await _context.Courses.ToListAsync();
         }
 
-        // GET: api/Univerities/5
+        // GET: api/Courses/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<University>> GetUniversity(string id)
+        public async Task<ActionResult<Course>> GetCourse(string id)
         {
-            var university = await _context.Universities.FindAsync(id);
+            var course = await _context.Courses.FindAsync(id);
 
-            if (university == null)
+            if (course == null)
             {
                 return NotFound();
             }
 
-            return university;
+            return course;
         }
 
-        // PUT: api/Univerities/5
+        // PUT: api/Courses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUniversity(string id, University university)
+        public async Task<IActionResult> PutCourse(string id, Course course)
         {
-            if (id != university.ID)
+            if (id != course.ID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(university).State = EntityState.Modified;
+            _context.Entry(course).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace tenta_hub_backend.src.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UniversityExists(id))
+                if (!CourseExists(id))
                 {
                     return NotFound();
                 }
@@ -72,19 +72,19 @@ namespace tenta_hub_backend.src.Controllers
             return NoContent();
         }
 
-        // POST: api/Univerities
+        // POST: api/Courses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<University>> PostUniversity(University university)
+        public async Task<ActionResult<Course>> PostCourse(Course course)
         {
-            _context.Universities.Add(university);
+            _context.Courses.Add(course);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (UniversityExists(university.ID))
+                if (CourseExists(course.ID))
                 {
                     return Conflict();
                 }
@@ -94,28 +94,28 @@ namespace tenta_hub_backend.src.Controllers
                 }
             }
 
-            return CreatedAtAction("GetUniversity", new { id = university.ID }, university);
+            return CreatedAtAction("GetCourse", new { id = course.ID }, course);
         }
 
-        // DELETE: api/Univerities/5
+        // DELETE: api/Courses/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUniversity(string id)
+        public async Task<IActionResult> DeleteCourse(string id)
         {
-            var university = await _context.Universities.FindAsync(id);
-            if (university == null)
+            var course = await _context.Courses.FindAsync(id);
+            if (course == null)
             {
                 return NotFound();
             }
 
-            _context.Universities.Remove(university);
+            _context.Courses.Remove(course);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool UniversityExists(string id)
+        private bool CourseExists(string id)
         {
-            return _context.Universities.Any(e => e.ID == id);
+            return _context.Courses.Any(e => e.ID == id);
         }
     }
 }
